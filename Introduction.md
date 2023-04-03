@@ -4,17 +4,21 @@ Jenkins can be installed even on standalone be any machine with a java runtime e
 
 Jenkins is a tool for Implmenting CI-CD (Continuous Integration - Continuous Delivery)
 
-## STAGES IN CI-CD
+# STAGES IN CI-CD
 
-Stage 1: Continuous Download
-Stage 2: Continuous Build
-Stage 3: Continuous Deployment
-Stage 4: Continuous Testing
-Stage 5: Continuous Delivery
+## Stage 1: Continuous Download
+
+## Stage 2: Continuous Build
+
+## Stage 3: Continuous Deployment
+
+## Stage 4: Continuous Testing
+
+## Stage 5: Continuous Delivery
 
 
-1-4    -----   Continuous Integration
-  5    ----     Continuous Delivery
+## Stages 1-4    ----->   Continuous Integration
+## Stage 5       ----->       Continuous Delivery
 
 
 
@@ -24,7 +28,7 @@ Stage 5: Continuous Delivery
 
 ## Create Instance in AWS
 
-1) Create the AWS Account
+1) Create the AWS Account (Create a User Account for security purpose and give it the least required permission)
 
 2) Login with your aws account
 
@@ -96,7 +100,7 @@ Now we run any command that command run in the AWS Intance
 
 Important Point : If you are not doing practice in AWS Stop all the instance.
 
-Install Jenkins in AWS Instance
+## Install Jenkins in AWS Instance
 
 To install Jenkins the first thing we need java file so first we need to install java like we have done in the local instance.
 
