@@ -1,13 +1,12 @@
 Jenkins is a self contained, open source automation server which can be used to automate all  tasks related to building , testing and delivery activities.
 
-
 Jenkins can be installed even on standalone be any machine with a java runtime envirowment (JRE) Installed.
 
 Jenkins is a tool for Implmenting CI-CD (Continuous Integration - Continuous Delivery)
 
-Stages in CI-CD
+## STAGES IN CI-CD
 
-Stage 1 : Continuous Download
+Stage 1: Continuous Download
 Stage 2: Continuous Build
 Stage 3: Continuous Deployment
 Stage 4: Continuous Testing
@@ -23,7 +22,7 @@ Stage 5: Continuous Delivery
 
 
 
-Create Instance in AWS
+## Create Instance in AWS
 
 1) Create the AWS Account
 
@@ -71,7 +70,7 @@ This key pair helps us to connect us to our data center.
 
 22) Give all 3 instance proper name ( Dev Server, QA Server, Prod Server ) 
 
-How to Connect with the AWS Instance
+## How to Connect with the AWS Instance
 
 1) Select that Instance
 
