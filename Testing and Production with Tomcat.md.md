@@ -1,4 +1,4 @@
-## Install TOMCAT In QAulity Assurance (Testing) & Production Server
+## Install TOMCAT In Qaulity Assurance (Testing) & Production Server
 
 ## Setting up the Quality Testing Instance
 
@@ -63,9 +63,9 @@ sudo service tomcat8 restart
 
 ## Setting up the Production Instance
 
-<user username="learning" password="sunilsunil" roles="manager-script,manager-status,manager-gui"/>  (Username and password can mean anything)
+Repeat steps 1 - 12 in the production instance
 
-+++++++++++++++++++++++++
+<user username="learning" password="sunilsunil" roles="manager-script,manager-status,manager-gui"/>  (Username and password can mean anything)
 
 
 First Start All the AWS Machines.
@@ -78,6 +78,8 @@ java -jar jenkins.war
 
 ## Stage 1 : Continuous Download START CI-CD
 
+ Make sure all 3 Instances are running. Connect the Dev Server and start Jenkins with the command **java -jar jenkins.war
+
 1) Create New item as free style project
 
 2) Click on source code managment 
@@ -85,7 +87,7 @@ java -jar jenkins.war
 3) Select GIT
 
 4) Enter the URL of github reposiditory
-https://github.com/sunildevops77/maven.git
+   https://github.com/sunildevops77/maven.git
 
 5) Click on apply and save
 
@@ -96,15 +98,15 @@ https://github.com/sunildevops77/maven.git
 8) Connect to the dev server
 
 9) Go to the location where code is downloaded
+```
 sudo su -
+```
 
-cd path of the folder
-
-ls
+cd path of the folder and check the content with **ls
 
 ## Stage 2 : Continuous Build
 
-Convert the java files in to artifact ( .war file)
+   Convert the java files in to artifact ( .war file)
 
 10) Click on configure of the same job
 
@@ -123,12 +125,13 @@ Convert the java files in to artifact ( .war file)
 17) Click on number & click on console output
 
 18) Copy the path of the war file and check the file in the linux machine
+```
 sudo su -
 
 cd path
 
 ls
-
+```
 ## Stage 3 : Continuous Deployment 
 
 Now we need to deploy the war file into the QA Server.
@@ -154,7 +157,7 @@ Select that plugin and click on install without restart.
 22) Click on deploy war/ear to container
 
 23) Enter the path of the war file (or)
- we can give **/*.war in war/ear files.
+    we can give **/*.war in war/ear files.
 
 24) Context path: qaenv
 
@@ -186,7 +189,6 @@ public_ip_Qa_server:8080/qaenv
 
 13.127.177.32:8080/qaenv
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 https://github.com/sunildevops77/TestingNew.git
 
@@ -208,16 +210,12 @@ Step 6: Configure the same job ( testing )
  	( Command: java -jar  testing.jar )
 	Command:   echo " Testing passed"
 
-
-
 Now both are independent job.
 To call testing job  after development job is completed
 
 Go to first job ( demo ) --  configure 
 Post build actions -- add post build action -- build other project - 
 Projects to build - testing ( name of the job)
-
-++++++++++++++
 
 
 Copying artifacts from development job to testing job
@@ -289,9 +287,6 @@ http://172.31.39.130:8080
 23) Click on Apply and save
 
 
-
-
-++++++++++++
 7) enter linux command in Prod Server  -   cd /etc/tomcat8/
 
 8) enter linux command in prod Server  -   ls
