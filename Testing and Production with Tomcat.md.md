@@ -1,56 +1,68 @@
 ## Install TOMCAT In QAulity Assurance (Testing) & Production Server
 
+## Setting up the Quality Testing Instance
+
 1) Select QA Server and press connect
 
 2) Copy the SSH Command
 
-3) Open GIT Bash & paste the SSH Command
+3) Open GIT Bash & paste the SSH Command and press Yes
 
-Press Yes
+4) Update the apt repository:
+```
 
-4) Update the apt repository 
 sudo apt-get update
 
+```
+
 5) Install tomcat8
+```
 sudo apt-get install -y tomcat8
+```
 
 After this we need to install one more package
+```
 sudo apt-get install -y tomcat8-admin
+```
 
 6) Check the tomcat is intall or not
 
 Copy the public IP of the QA Server then paste in the browser and in the end enter :8080 
-
+```
 qa_server_public_ip:8080
+```
 
 Setting the path of tomcat in jenkins
 
-7) enter linux command in QA Server  -   cd /etc/tomcat8/
+7) enter linux command in QA Server  -   **cd /etc/tomcat8/
 
-8) enter linux command in QA Server  -   ls
+8) enter linux command in QA Server  -   **ls
 
 9) You will find the file tomcat-users.xml
 
-10) Open the file -- sudo vim tomcat-users.xml
+10) Open the file 
+```
+sudo vim tomcat-users.xml
+```
 
 11) In the end we need to add one statement 
 <user username="training" password="sunilsunil" roles="manager-script,manager-status,manager-gui"/>  (Usename and password can mean anything)
 
-save and quit 
-
-press esc 
-
-type :wq 
-
-press enter
+save and quit by:
+```
+press esc and then type :wq followed by pressing enter
+```
 
 12) When ever we do any changes done in any service we need to restart the service
+```
 sudo service tomcat8 restart
+```
 
 13) After this the same above 12 steps we need to do in the prod server also.
 
-++++++++++++++++++=
-Prod Instance
+
+## Setting up the Production Instance
+
 <user username="learning" password="sunilsunil" roles="manager-script,manager-status,manager-gui"/>  (Username and password can mean anything)
 
 +++++++++++++++++++++++++
