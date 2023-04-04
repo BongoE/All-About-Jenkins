@@ -17,64 +17,68 @@ Master - Slave configuration
 * Same version of java should be installed on both Master and Slave Machine.
 * Master and slave should have password less SSH
 
-## Step 1: Create slave machine  , connect to slave
+## Step 1- Create and  connect to Slave-Machine (Slave-Instance)
 
-1) Update the apt repository
+1) Create an EC2-Instance and grant ssh persmission 
+2) Update the apt repository
+```
 sudo apt-get update
-
-
-2)  sudo apt install openjdk-8-jdk -y
-
-
+sudo apt install openjdk-8-jdk -y (Install the latest or recommended version of Java)
+```
 3) Check the Java Version
+```
 java -version
+```
 
-------------------
-We need to establish password less connection between Dev server and Slave machine
-----------------------
-
-Connect to slave
-7) Check you user
-$ whoami       (  ubuntu )
+## Step 2- We need to establish password less connection between Development Server and Slave Machine
 
 
-8) set password  for  ubuntu  user
-syntax: sudo  passwd  <user_name>
+4) Connect to slave (establish an ssh connection)
+5) Check  user
+```
+$ whoami       (  Name of EC2 AMI would be revealed. I used ubuntu )
+```
+
+6) Set password  for  ubuntu  user
+```
+syntax:
+sudo  passwd  <user_name>
 Ex:        sudo passwd ubuntu
 enter password
-
-
+(I used Ubuntu as my username and password for simplicity during learning. Use credentials that are simple for learning purposes)
+```
+7) Enter the configuration file
+ ```
 $  cd /etc/ssh
 
-$ ls   ( we get list of files )   Look for   sshd_config
+$ ls   ( To get list of files )   Look for   sshd_config
+```
 
-To edit sshd_config
+8) Edit sshd_config
+```
 $ sudo vim sshd_config
 
 Go to insert mode
-
-) change password authentication to yes
-
-13) Save and quit :wq
-
-14) Restart the service
+Change password authentication to 'yes'
+Save and quit with the command :wq
+```
+9) Restart the service
+```
 $ sudo service ssh restart
+```
 
-Lets test the connection
--------------------------------
+## Step 3- Let's Test The Connection
 
-15) Connect to the development server  ( Master )
+10) Connect (ssh connection) to the development server  ( Master )
 
-16) connect to slave server through dev server
+11) Connect to slave server through Dev server (master)
+```
 ssh ubuntu@private_ip_slave_machine
-
-$ ssh ubuntu@172.31.1.107
-
-
+```
+View connection with the slave Machine...successful!!. 
 
 exit  ( to come back to master )
 
-+++++++++++++++++++++++++++++++++++++++
 
 
 17)  To connect to slave  without password
