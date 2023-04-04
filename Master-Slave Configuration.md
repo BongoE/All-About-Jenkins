@@ -81,21 +81,27 @@ exit  ( to come back to master )
 
 
 
-17)  To connect to slave  without password
+##  To connect to slave  without password
+12) Generate the ssh in Master
+```
 $ ssh-keygen      ( In master)
+```
+13) cd into the ssh directory
+```
+cd .ssh
+```
 
 
-18) copy the keys to slave server
+14) copy the keys (id_rsa.pub) to slave server 
+```
 ssh-copy-id  ubuntu@private_ip_slave_server
-ssh-copy-id  ubuntu@172.31.1.107
+```
+
+15) now we are able to connect to the slave user without password
+$  ssh ubuntu@private_ip_slave_server
 
 
-
-19) now we are able to connect to the slave user without password
-$  ssh ubuntu@172.31.1.107
-
-
-
+####continue editing from here
 -------------------
 
 Download slave.jar in slave machine
